@@ -1,0 +1,238 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: "Roboto", sans-serif;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.form-control:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: #0bdc1c;
+}
+
+input[type="submit"],
+input[type="reset"],
+button,
+button[type="submit"] {
+  border: 3px solid #0bdc1c;
+  color: #000000;
+  background: none;
+  padding: 0.6rem 2.2rem;
+  border-radius: 0;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover,
+button[type="submit"]:hover {
+  background: #0bdc1c;
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  list-style-position: inside;
+}
+
+.site-wrapper {
+  padding: 6rem 0;
+  color: #222222;
+}
+
+header {
+  background-color: #222222;
+  padding: 1.5rem;
+  color: #e7f5e7;
+}
+
+header .logo {
+  color: #0bdc1c;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+header nav.main-navigation,
+header nav.main-navigation ul li,
+header .top-right.links ul li {
+  display: inline-block;
+}
+
+header nav.main-navigation ul,
+header nav.main-navigation ul li ul,
+header .top-right.links ul li ul {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+header nav.main-navigation ul li,
+header .top-right.links ul li ul li {
+  padding: 0 1rem;
+}
+
+header nav.main-navigation ul li a,
+header .top-right.links ul li ul li a {
+  position: relative;
+  color: #f5f5f5;
+}
+
+header nav.main-navigation ul li a:after,
+header .top-right.links ul li ul li a:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 5px;
+  width: 100%;
+  -webkit-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+  background: #a7a7a7;
+}
+
+header nav.main-navigation ul li a:hover:after,
+header .top-right.links ul li ul li a:hover:after,
+header nav.main-navigation ul li a.active:after,
+header .top-right.links ul li ul li a.active:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 5px;
+  width: 100%;
+  -webkit-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+  background: #0bdc1c;
+}
+
+header .top-right.links ul {
+  margin: 0;
+}
+
+header .top-right.links ul li {
+  padding: 0 1rem;
+}
+
+header .top-right.links ul li a {
+  position: relative;
+  color: #f5f5f5;
+}
+
+header .top-right.links ul li a:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 5px;
+  width: 100%;
+  -webkit-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+  background: #a7a7a7;
+}
+
+header .top-right.links ul li a:hover:after,
+header .top-right.links ul li a.active:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 5px;
+  width: 100%;
+  -webkit-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+  background: #0bdc1c;
+}
+
+#map {
+  height: 27rem;
+  margin-top: 2rem;
+}
+
+footer {
+  background-color: #222222;
+  padding: 2rem 0 0 0;
+  color: #f5f5f5;
+}
+
+footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2.2rem;
+}
+
+footer h3 span {
+  position: relative;
+}
+
+footer h3 span:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 5px;
+  width: 100%;
+  -webkit-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+  background: #a7a7a7;
+}
+
+footer .footer-top {
+  padding: 20px 0 30px 0;
+  color: #f5f5f5;
+}
+
+footer .footer-top ul.contacts li {
+  line-height: 2rem;
+  font-size: 0.95rem;
+}
+
+footer .footer-top ul.contacts li i.fa {
+  margin-right: 1rem;
+  color: #0bdc1c;
+}
+
+footer .footer-logo {
+  color: #f5f5f5;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+footer ul li {
+  list-style: none;
+}
+
+footer ul.social-network li {
+  display: inline-block;
+  font-size: 1.3rem;
+  margin-right: 0.8rem;
+}
+
+footer ul.social-network li a {
+  color: #f5f5f5;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+}
+
+footer ul.social-network li a:hover {
+  color: #0bdc1c;
+}
+
+footer .footer-bottom {
+  background: #292929;
+  padding: 0.5rem 0;
+}
+

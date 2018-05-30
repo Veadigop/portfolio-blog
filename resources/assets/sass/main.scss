@@ -1,0 +1,254 @@
+//Main Styles
+$body_bg : #ffffff;
+$body_font :'Roboto', sans-serif;
+$menu_link_color:#f5f5f5;
+$logo_color: #0bdc1c;
+$footer_logo_color:#f5f5f5;
+$logo_size: 2rem;
+$logo_text_transform:uppercase;
+@mixin after_link{
+  content:'';
+  position: absolute;
+  left:0;
+  bottom: -10px;
+  height:5px;
+  width: 100%;
+  transition: background 0.1s ease-in-out;
+}
+
+//Buttons Style
+$button_background:none;
+$button_background_hover:#0bdc1c;
+$button_color:#000000;
+$button_color_hover:#ffffff;
+$button_border:3px solid #0bdc1c;
+
+//Header Styles
+$header_bg: #222222;
+$header_color: #e7f5e7;
+$header_menu_item_padding:0 1rem;
+$menu_link_color:#f5f5f5;
+$menu_link_bg_after:#a7a7a7;
+$menu_link_bg_after_hover:#0bdc1c;
+
+// Content Styles
+$main_content_color : #222222;
+$html_font_size:16px;
+
+// Footer Styles
+$footer_bg : #222222;
+$footer_content_color:#f5f5f5;
+$footer_header_size:1.5rem;
+$footer_bottom_background:#292929;
+
+html{
+  font-size:$html_font_size;
+}
+
+body
+{
+  background-color: $body_bg;
+  font-family: $body_font;
+}
+
+.form-control{
+  border-radius: 0;
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-color:#0bdc1c;
+}
+
+input[type="submit"],
+input[type="reset"],
+button,
+button[type="submit"]{
+  border:$button_border;
+  color:$button_color;
+  background: $button_background;
+  padding: 0.6rem 2.2rem;
+  border-radius:0;
+
+  &:hover{
+    background: $button_background_hover;
+    color: $button_color_hover;
+  }
+}
+
+a{
+  text-decoration:none;
+  &:hover,
+  &:active,
+  &:visited{
+    text-decoration:none;
+  }
+}
+
+ul{
+  padding:0;
+  list-style-position: inside;
+}
+
+.site-wrapper{
+  padding:6rem 0;
+  color:$main_content_color;
+}
+
+header
+{
+  background-color: $header_bg;
+  padding: 1.5rem;
+  color: $header_color;
+
+  //Logo (start)
+  .logo{
+    color:$logo_color;
+    font-size: $logo_size;
+    text-transform: $logo_text_transform;
+  }
+  //Logo (end)
+
+  //Main Navigation (start)
+  nav.main-navigation{
+    display:inline-block;
+
+    ul{
+      margin-bottom: 0;
+      padding: 0;
+    }
+    ul li{
+      @extend nav.main-navigation;
+      padding:$header_menu_item_padding;
+    }
+
+    ul li a{
+      position:relative;
+      color:$menu_link_color;
+
+      &:after{
+        @include after-link;
+        background: $menu_link_bg_after;
+      }
+
+      &:hover,
+      &.active{
+        &:after{
+          @include after-link;
+          background: $menu_link_bg_after_hover;
+        }
+      }
+
+    }
+
+  }
+  //Main Navigation (end)
+
+  //Login/logout (start)
+  .top-right.links{
+    ul{
+      margin:0;
+    }
+    ul li{
+      @extend nav.main-navigation;
+      padding:$header_menu_item_padding;
+    }
+
+    ul li a{
+      position:relative;
+      color:$menu_link_color;
+
+      &:after{
+        @include after-link;
+        background: $menu_link_bg_after;
+      }
+
+      &:hover,
+      &.active{
+        &:after{
+          @include after-link;
+          background: $menu_link_bg_after_hover;
+        }
+      }
+
+    }
+
+  }
+  //Login/logout (start)
+}
+
+
+// Contact Styles
+#map{
+  height:27rem;
+  margin-top: 2rem;
+}
+
+footer
+{
+  background-color: $footer_bg;
+  padding: 2rem 0 0 0;
+  color:#f5f5f5;
+
+  h3{
+    font-size: $footer_header_size;
+    margin-bottom: 2.2rem;
+
+    span{
+      position: relative;
+      &:after{
+        @include after-link;
+        background: $menu_link_bg_after;
+      }
+    }
+  }
+
+  .footer-top{
+    padding: 20px 0 30px 0;
+    color: $footer_content_color;
+
+    ul.contacts{
+      li{
+        line-height: 2rem;
+        font-size:0.95rem;
+
+        i.fa{
+            margin-right: 1rem;
+          color:#0bdc1c;
+          }
+        }
+      }
+    }
+
+  .footer-logo{
+    color:$footer_logo_color;
+    font-size: $logo_size;
+    text-transform: $logo_text_transform;
+  }
+
+  ul{
+    li{
+      list-style: none;
+    }
+
+    &.social-network li{
+      display: inline-block;
+      font-size: 1.3rem;
+      margin-right: 0.8rem;
+
+      a{
+        color:#f5f5f5;
+        transition: color 0.1s ease-in-out;
+
+        &:hover{
+          color:#0bdc1c;
+        }
+      }
+    }
+
+  }
+  .footer-bottom{
+    background: $footer_bottom_background;
+    padding: 0.5rem 0;
+  }
+}
