@@ -8,12 +8,9 @@ use App\Category;
 use App\Category_article;
 use App\Category_portfolio;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 
-use App\User;
 
 class CategoryController extends Controller
 {

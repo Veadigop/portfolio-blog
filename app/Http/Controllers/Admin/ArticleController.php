@@ -10,7 +10,6 @@ use App\Category_article;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 

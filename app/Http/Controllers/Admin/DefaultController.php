@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Portfolio;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 
 class DefaultController extends Controller
@@ -16,7 +15,6 @@ class DefaultController extends Controller
     public function __construct()
     {
         $this->middleware(['auth', 'admin_or_moderator']);
-//        $this->middleware('moderator',['except' => ['delete','add', 'update']]);
     }
 
     public function index()

@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    public function article()//$comment->post->body  KG
+    public function article()
     {
         return $this->belongsTo(Article::class);
     }
 
 
-    public function user() //$comment->user->name
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

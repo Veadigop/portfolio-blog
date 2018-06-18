@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: veadigop
- * Date: 01/05/2018
- * Time: 15:42
- */
 
 namespace App\Http\Controllers\Admin;
 
@@ -13,6 +7,7 @@ use App\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 
 class CommentController extends Controller
 {

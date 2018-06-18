@@ -1,19 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: veadigop
- * Date: 01/05/2018
- * Time: 15:42
- */
 
 namespace App\Http\Controllers\Portfolio;
-
 
 use App\Http\Controllers\Controller;
 use App\Portfolio;
 use App\Category;
 use App\Category_portfolio;
 use App\Portfolio_image;
+
 
 class PortfolioController extends Controller
 {
@@ -42,9 +36,6 @@ class PortfolioController extends Controller
 
     public function show_by_category(Category_portfolio $category_portfolio)
     {
-        //var_dump($article);
-        //$single_article = Article::where('id', $article)->get();
-
         return view('blog.show', compact('category_portfolio'));
     }
 }

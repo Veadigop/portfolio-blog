@@ -3,9 +3,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;

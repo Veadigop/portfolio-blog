@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Role;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-
 use App\User;
+
 
 class UserController extends Controller
 {
@@ -107,9 +106,7 @@ class UserController extends Controller
 
         $user = User::find(request('user_id'));
         $user_name = $user->name;
-
         $user->delete();
-
 
         session()->flash('message_alert','User "' . $user_name . '" was deleted.');
     }
