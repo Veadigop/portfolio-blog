@@ -26,10 +26,12 @@ class AdminController extends Controller
         return view('admin.articles.articles', ['articles'=>$articles]);
     }
 
-    public function addArticle()
+    public function addArticle(Request $request)
     {
-        $users = User::orderBy('id')->paginate(5);
-        return view('admin.users', ['users'=>$users]);
+        if($request->isMethod('post')){
+
+        }
+        return view('admin.articles.add' );
     }
 
 }

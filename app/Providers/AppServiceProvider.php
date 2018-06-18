@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
         Validator::replacer('phone', function($message, $attribute, $rule, $parameters) {
             return str_replace(':attribute', 'The '.$attribute, ':attribute is invalid');
         });
+
+        View::composer('layouts.footer', '\App\Http\ViewComposer\CategoryPost');
+
     }
 
     /**

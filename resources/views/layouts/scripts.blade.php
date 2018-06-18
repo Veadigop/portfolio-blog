@@ -1,5 +1,8 @@
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 
 @if(Request::is('contact'))
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_fsL2o70fwYWr2ILBTRRYxGv51faCZpE&callback=initMap"></script>

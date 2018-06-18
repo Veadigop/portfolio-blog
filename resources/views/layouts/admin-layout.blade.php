@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="_token" content="{{ csrf_token() }}"/>
     <title>{{ config('app.name')}}</title>
-
     <!-- Bootstrap core CSS-->
     <link href="{{ asset('css/admin/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -16,6 +16,9 @@
     <link href="{{ asset('css/admin/dataTables.bootstrap4.css')}}" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/admin/admin.css')}}" rel="stylesheet">
+
+    {{--select2--}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -43,10 +46,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseUsers">
                     <li>
-                        <a href="/admin/users">All users</a>
+                        <a href="/admin/users">All Users</a>
                     </li>
                     <li>
-                        <a href="/admin/user/add">Add new user</a>
+                        <a href="/admin/users/create">Add New User</a>
                     </li>
                 </ul>
             </li>
@@ -58,13 +61,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseBlog">
                     <li>
-                        <a href="/admin/articles">All Posts</a>
+                        <a href="/admin/articles">All Articles</a>
                     </li>
                     <li>
-                        <a href="/admin/add-new/articles">Add New</a>
-                    </li>
-                    <li>
-                        <a href="/admin/categories">Categories</a>
+                        <a href="/admin/articles/create">Add New Article</a>
                     </li>
                     <li>
                         <a href="/admin/comments">Comments</a>
@@ -79,10 +79,26 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                     <li>
-                        <a href="login.html">Portfolio Items</a>
+                        <a href="/admin/portfolios">All Portfolio Items</a>
                     </li>
                     <li>
-                        <a href="login.html">Categories</a>
+                        <a href="/admin/portfolios/create">Add New Portfolio Items</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Categories">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseCategories" data-parent="#exampleAccordion">
+                    <i class="fa fa-fw fa-file"></i>
+                    <span class="nav-link-text">Categories</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseCategories">
+                    <li>
+                        <a href="/admin/categories">All Categories</a>
+                    </li>
+                    <li>
+                        <a href="/admin/categories/create">Add New Category</a>
                     </li>
                 </ul>
             </li>
@@ -96,55 +112,9 @@
             </li>
         </ul>
         <div class="greeting-wrapper">
-            Hello, <span class="user-name">{{Auth::user()->name}}!</span>
+            <i class="fa fa-user" aria-hidden="true"></i> Hello, <span class="user-name">{{Auth::user()->name}}!</span>
         </div>
         <ul class="navbar-nav ml-auto align-items-center">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-fw fa-envelope"></i>
-                    <span class="d-lg-none">Messages
-              <span class="badge badge-pill badge-primary">12 New</span>
-            </span>
-                    <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-                    <h6 class="dropdown-header">New Messages:</h6>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <strong>David Miller</strong>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <strong>Jane Smith</strong>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
-                        <strong>John Doe</strong>
-                        <span class="small float-right text-muted">11:21 AM</span>
-                        <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item small" href="#">View all messages</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <form class="form-inline my-2 my-lg-0 mr-lg-2">
-                    <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Search for...">
-                        <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-            </li>
             <li class="nav-item">
                 <a href="{{ url('/logout') }}" class="nav-link">
                     <span class="nav-link-text"><i class="fa fa-fw fa-sign-out"></i>Logout</span></a>
@@ -157,8 +127,10 @@
     </div>
 </nav>
 
+
 <div class="content-wrapper">
     <div class="container-fluid">
+        @include('layouts.alert')
 
         @yield('content')
 
@@ -167,9 +139,23 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="{{ asset('js/admin/jquery.min.js') }}"></script>
+{{--select2--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script src="{{ asset('js/admin/bootstrap.bundle.min.js') }}"></script>
-<!-- Custom scripts for admin page-->
 <script src="{{ asset('js/admin/admin.min.js') }}"></script>
+<script  src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
+
+
+<script>
+    tinymce.init({
+        selector: 'textarea',  // change this value according to your HTML
+
+    });
+</script>
+<!-- Custom scripts for admin page-->
+<script  src="{{ asset('js/admin/admin-custom.js') }}"></script>
+
+
 
 </body>
 

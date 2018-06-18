@@ -19,5 +19,15 @@ class Article extends Model
         return $this->hasMany(Article_image::class);
     }
 
+    public function category_articles()
+    {
+        return $this->hasMany(Category_article::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 
 }

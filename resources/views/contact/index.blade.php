@@ -2,19 +2,22 @@
 
 
 @section('content')
-<div class="row justify-content-start">
+    <div class="container">
+        <div class="row justify-content-start">
 
     <div class="col-12 mb-3 text-center">
         <h1>Contact Us</h1>
     </div>
 
     @if(Session::has('mail_sent'))
-        <div class="sucsess">
-            <?=Session::get('mail_sent')?>
+        <div class="col-12">
+            <div class="alert alert-success mb-4">
+                <?=Session::get('mail_sent')?>
+            </div>
         </div>
     @endif
 
-    <form class="form-horizontal mb-5 col-6" method="POST" action="/contact">
+    <form class="form-horizontal mb-5 col-12 col-md-6" method="POST" action="/contact">
         {{ csrf_field() }}
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
@@ -56,11 +59,12 @@
         <input type="submit" value="Send" class="btn">
     </form>
 
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <div id="map" class="mb-3"></div>
         <h4>We are here</h4>
         <p>1234 Heaven Stress, Beverly Hill OldYork- United State of Lorem</p>
     </div>
 
-</div>
+        </div>
+    </div>
 @endsection

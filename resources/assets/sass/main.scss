@@ -18,10 +18,14 @@ $logo_text_transform:uppercase;
 
 //Buttons Style
 $button_background:none;
-$button_background_hover:#0bdc1c;
+$button_background_hover:#24c331;
 $button_color:#000000;
 $button_color_hover:#ffffff;
-$button_border:3px solid #0bdc1c;
+$button_border:3px solid #24c331;
+
+//Link Style
+$link_color:#24c331;
+$link_color_hover:#18e628;
 
 //Header Styles
 $header_bg: #222222;
@@ -41,6 +45,7 @@ $footer_content_color:#f5f5f5;
 $footer_header_size:1.5rem;
 $footer_bottom_background:#292929;
 
+$url : '/../images';
 html{
   font-size:$html_font_size;
 }
@@ -49,6 +54,14 @@ body
 {
   background-color: $body_bg;
   font-family: $body_font;
+}
+
+img{
+  width:100%;
+}
+
+.disabled{
+  display:none;
 }
 
 .form-control{
@@ -60,28 +73,65 @@ body
   border-color:#0bdc1c;
 }
 
+.pagination{
+  justify-content: center;
+}
+
+.page-item .page-link{
+  color: #24c331;
+}
+
+.page-item.active .page-link{
+  background-color: #24c331;
+  border-color: #24c331;
+}
+
+.button{
+  &:active,
+  &:visited{
+    color:$button_color;
+  }
+}
+
 input[type="submit"],
 input[type="reset"],
 button,
+.button,
 button[type="submit"]{
+  cursor: pointer;
+  outline:none;
   border:$button_border;
   color:$button_color;
   background: $button_background;
   padding: 0.6rem 2.2rem;
   border-radius:0;
+  transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 
   &:hover{
     background: $button_background_hover;
     color: $button_color_hover;
+    outline:none;
+  }
+  &:active,
+  &:visited,
+  &:focus{
+    outline:none;
   }
 }
 
 a{
   text-decoration:none;
-  &:hover,
+  color:$link_color;
+  transition: color 0.2s ease-in-out;
   &:active,
   &:visited{
+    color:$link_color;
+    outline:none;
+  }
+  &:hover{
     text-decoration:none;
+    color:$link_color_hover;
+    outline:none;
   }
 }
 
@@ -98,15 +148,53 @@ ul{
 header
 {
   background-color: $header_bg;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   color: $header_color;
-
   //Logo (start)
   .logo{
     color:$logo_color;
     font-size: $logo_size;
     text-transform: $logo_text_transform;
   }
+  @media only screen and (max-width: 800px) {
+    .logo {
+      font-size: 1.5rem;
+    }
+
+    nav.main-navigation ul li{
+      padding: 0.6rem!important;
+    }
+
+    .top-right.links{
+      text-align: center!important;
+      margin-top: 1rem;
+    }
+
+    .menu-wrapper{
+      text-align: right!important;
+      .navbar-toggler .fa{
+        color:$link_color;
+      }
+    }
+
+    .navbar{
+      padding: 0.5rem 0!important;
+    }
+    .navbar-toggler{
+      background: transparent;
+    }
+    .navbar-collapse{
+      position: absolute;
+      top: 3rem;
+      text-align: left;
+      background: rgb(0, 0, 0);
+      min-width: 260px;
+      right: 0px;
+      z-index: 10;
+      padding: 1rem;
+    }
+  }
+
   //Logo (end)
 
   //Main Navigation (start)
@@ -177,6 +265,75 @@ header
   //Login/logout (start)
 }
 
+//Homepage
+.articles-home,
+.portfolio-home{
+  max-width:382px;
+}
+
+.card-footer {
+  padding: 1.25rem;
+  background:none;
+}
+
+//Blog style
+.blog .article{
+  max-width:800px;
+  margin: 0 auto 5.5rem;
+}
+
+//Portfolio style
+.portfolio .portfolio-item{
+  max-width:800px;
+  margin: 0 auto 5.5rem;
+}
+
+//About Us (start)
+.experience-bg{
+  background: url('#{$url}/creative.jpg');
+  backround-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed!important;
+  background-size: cover!important;
+  background-position: 100% 21%!important;
+  position: relative;
+  color: #ffffff;
+}
+.icon-box-single {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: block;
+  padding: 30px 45px 10px;
+  margin-bottom: 30px;
+  position: relative;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon-box-single.icon-box-center {
+  text-align: center;
+}
+
+.icon-box-single .icon-box {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #687180;
+}
+
+.icon-box-title {
+  font-weight: 500;
+}
+.bg-overlay{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #5a6268;
+  opacity: 0.8;
+}
+//About Us (end)
 
 // Contact Styles
 #map{
@@ -250,5 +407,16 @@ footer
   .footer-bottom{
     background: $footer_bottom_background;
     padding: 0.5rem 0;
+  }
+}
+
+//Mobile Style
+@media only screen and (max-width: 800px) {
+  .copyright{
+    text-align: center!important;
+    padding: 1rem 0;
+  }
+  .footer-logo{
+    display: none;
   }
 }

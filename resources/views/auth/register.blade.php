@@ -58,7 +58,9 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input type="hidden" id="role_id" name="role_id" value="1">
                             </div>
+                            <input type="hidden" id="role_id" name="role_id" value="1">
                         </div>
 
                         <div class="form-group">

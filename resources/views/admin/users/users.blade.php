@@ -11,14 +11,21 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($users as $user)
+        @forelse($users as $user)
                <tr>
-                   <td>{{$user->name}}</td>
+                   <td class="user-id={{$user->id}}">{{$user->name}}</td>
                    <td>{{$user->email}}</td>
                    <td>{{$user->role}}</td>
                </tr>
-        @endforeach
+            @empty
+            <tr>
+                <td>No user</td>
+            </tr>
+        @endforelse
         </tbody>
     </table>
+    <div class="row mb-5 mt-5 text-center">
+        <div class="col-md-12 mb-5"> {{ $users->links() }}</div>
+    </div>
 @endsection
 

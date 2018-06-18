@@ -484,3 +484,38 @@ footer.sticky-footer {
 .greeting-wrapper .user-name{
     color:#0bdc1c;
 }
+
+.del{
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.del:hover{
+    color: #0056b3;
+}
+
+a{
+    transition: color 0.2s ease-in-out;
+    text-decoration: none!important;
+}
+
+.disabled{
+    display: none;
+}
+
+.add-new i.fa{
+    margin-right:5px;
+    font-size: 13px;
+}
+.alert.alert-danger{
+    display: none;
+}
+
+.del{
+    font-weight: normal!important;
+}
+.del i.fa{
+    margin-right: 5px;
+}
